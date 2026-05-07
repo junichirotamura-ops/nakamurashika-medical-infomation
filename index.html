@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>なかむら歯科 | 広島県福山市の生涯のかかりつけ医</title>
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+    
+    <style>
+        /* ==========================================
+           CSS Variables (Color Scheme & Layout)
+           ========================================== */
+        :root {
+            --primary-color: #F39800; /* オレンジ */
+            --primary-hover: #e08b00;
+            --accent-color: #4D2C0D; /* こげ茶 */
+            --base-color: #FFFFFF; /* 白 */
+            --sub-bg-color: #FFF9F0; /* 淡いクリーム */
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e5e7eb;
+            --container-width: 1100px;
+            --font-main: 'Noto Sans JP', sans-serif;
+            --font-heading: 'Zen Kaku Gothic New', sans-serif;
+        }
+
+        /* ==========================================
+           Reset & Base Styles
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-main);
+            background-color: var(--base-color);
+            line-height: 1.6;
+            letter-spacing: 0.05em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--base-color);
+            box-shadow: 0 4px 6px rgba(243, 152, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(243, 152, 0, 0.3);
+        }
+
+        /* ==========================================
+           Header & Navigation (New Layout)
+           ========================================== */
+        .site-header {
+            background-color: var(--base-color);
+            width: 100%;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-top-link {
+            font-size: 0.8rem;
+            color: #666;
+            padding: 0.3rem 5%;
+        }
+
+        .header-main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        /* 左側（ロゴ・医院名） */
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-left .happy-life {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .header-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-logo-wrap img {
+            width: 40px;
+            height: auto;
+        }
+
+        .header-logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            letter-spacing: 0.05em;
+        }
+
+        .header-cert {
+            font-size: 0.65rem;
+            color: #333;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* 中央（診療時間） */
+        .header-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 1rem;
+        }
+
+        .header-center .schedule-table-new {
+            width: 300px;
+            margin: 0.5rem 0;
+        }
+        
+        .header-center .schedule-table-new th, 
+        .header-center .schedule-table-new td {
+            padding: 0.1rem;
+            font-size: 0.75rem;
+        }
+
+        /* 右側（予約・電話） */
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .header-reserve-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-contact-info {
+            text-align: right;
+            position: relative;
+        }
+
+        .header-contact-info p {
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .header-tel-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: 75px; /* スタッフ画像のスペース */
+        }
+
+        .header-tel-box .tel-main {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #666;
+            display: flex;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .header-tel-box .tel-free {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #666;
+            display: flex;
+            align-items: center;
+            line-height: 1.1;
+        }
+
+        .header-staff-img {
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            width: 70px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* ナビゲーションバー */
+        .header-nav-bar {
+            background-color: var(--base-color);
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 1.2rem 0;
+            margin: 0;
+        }
+
+        .header-nav-list a {
+            color: #4A5568; /* ネイビーグレー */
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .header-nav-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Header */
+        .mobile-header-bar {
+            display: none;
+        }
+        
+        .mobile-nav-menu {
+            display: none;
+        }
+
+        /* ==========================================
+           1. Hero Section
+           ========================================== */
+        .hero {
+            height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 20%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .hero-title span {
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* ==========================================
+           Quick Links Section (ヒーロー直下)
+           ========================================== */
+        .quick-links-section {
+            background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 5rem 0;
+        }
+
+        .quick-links-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .quick-links-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quick-links-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .quick-links-header h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.2rem;
+            font-family: serif;
+            letter-spacing: 0.1em;
+        }
+
+        .quick-links-header span {
+            font-size: 1rem;
+            color: #b59b70;
+            letter-spacing: 0.2em;
+            font-family: serif;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.2rem;
+        }
+
+        .quick-link-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 120px;
+        }
+
+        .quick-link-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .quick-link-item span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+        }
+
+        .link-decoration {
+            width: 40px;
+            height: 1px;
+            background-color: #d2c5a9;
+            position: relative;
+        }
+
+        /* ==========================================
+           2. Introduction Section
+           ========================================== */
+        .intro {
+            padding: 6rem 0;
+            background-color: var(--sub-bg-color);
+            text-align: center;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-main);
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text strong {
+            /* 個別の色はインラインスタイルで対応するため、ここはデフォルトの強調 */
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* ==========================================
+           3. Category Section
+           ========================================== */
+        .categories {
+            padding: 6rem 0;
+        }
+
+        .category-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .category-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .category-header h3 {
+            color: var(--primary-color); /* ⑤文字色をオレンジに変更 */
+            font-size: 1.6rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .category-header h3 .material-symbols-rounded {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .category-content {
+            flex-grow: 1;
+        }
+
+        .treatment-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        a.treatment-item {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--base-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        a.treatment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .treatment-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .treatment-text-content {
+            padding: 1.2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .treatment-text-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .treatment-text-content p {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        /* ==========================================
+           4. Features Section (院内のこだわり)
+           ========================================== */
+        .features {
+            padding: 6rem 0;
+            background-color: var(--sub-bg-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--base-color);
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-color);
+            transition: all 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .feature-image-wrapper {
+            width: 100%;
+            height: 200px;
+        }
+
+        .feature-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-text-content {
+            padding: 1.5rem;
+        }
+
+        .feature-text-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-text-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        /* ==========================================
+           Footer & Sitemap & Map Styles
+           ========================================== */
+        /* ... previous styles for sitemap, table, decorations ... */
+        .sitemap-section { background-color: var(--sub-bg-color); padding: 4rem 0 2rem; border-top: 1px solid #e0e0e0; }
+        .sitemap-header { background-color: #E87A00; color: #fff; text-align: center; padding: 0.5rem 0; font-size: 1.1rem; font-weight: bold; margin-bottom: 2rem; }
+        .sitemap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem 2rem; list-style: none; padding: 0; }
+        .sitemap-grid a { display: flex; align-items: center; color: #333; font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+        .sitemap-grid a:hover { color: #E87A00; }
+        .sitemap-grid a::before { content: "\e5cc"; font-family: 'Material Symbols Rounded'; color: #E87A00; font-size: 1.2rem; margin-right: 0.2rem; font-weight: bold; }
+        .footer-info-section { background-color: var(--sub-bg-color); padding: 0 0 4rem 0; position: relative; overflow: hidden; }
+        .footer-info-container { display: flex; justify-content: space-between; gap: 2rem; position: relative; max-width: 1000px; }
+        .info-left { width: 48%; }
+        .info-right { width: 48%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+        .info-staff-image { position: absolute; right: -100px; bottom: 0; width: 250px; z-index: 1; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
+        .info-left-top { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .info-tel-box p { font-size: 0.85rem; color: #666; margin-bottom: 0.2rem; }
+        .tel-main { font-size: 2rem; font-weight: bold; color: #555; display: flex; align-items: center; line-height: 1.2; }
+        .tel-free { font-size: 1.6rem; font-weight: bold; color: #555; display: flex; align-items: center; letter-spacing: 0.05em; }
+        .tel-icon { color: #555; margin-right: 0.2rem; }
+        .clinic-identity { margin-bottom: 1.5rem; }
+        .clinic-identity p { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; text-align: center; }
+        .clinic-logo-text { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 0.5rem; }
+        .clinic-logo-text img { width: 35px; height: auto; margin-right: 0.5rem; }
+        .access-table-info { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .access-table-info th, .access-table-info td { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 0.8rem 0.5rem; text-align: left; vertical-align: top; }
+        .access-table-info th { width: 60px; font-weight: bold; color: #333; }
+        .highlight-text { color: #E87A00; font-weight: bold; }
+        .banner-consult { background-color: #F8A048; color: white; display: flex; align-items: center; justify-content: center; padding: 0.8rem; font-size: 1.3rem; font-weight: bold; width: 100%; max-width: 400px; margin-bottom: 0.5rem; border-radius: 2px; gap: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .banner-reserve { background-color: #F8A048; color: white; display: flex; align-items: center; padding: 1rem; width: 100%; max-width: 400px; border-radius: 2px; margin-bottom: 0.5rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .reserve-circle { width: 60px; height: 60px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; margin-right: 1rem; flex-shrink: 0; line-height: 1; }
+        .reserve-text-box { display: flex; flex-direction: column; }
+        .reserve-text-box span { background-color: white; color: #F8A048; font-size: 0.8rem; padding: 0.1rem 0.5rem; border-radius: 2px; width: fit-content; margin-bottom: 0.2rem; font-weight: bold; }
+        .reserve-text-box strong { font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
+        .reserve-note { font-size: 0.85rem; color: #d84315; margin-bottom: 1.5rem; font-weight: bold; }
+        .decoration-wrap { display: flex; align-items: center; justify-content: center; width: 100%; margin: 1rem 0; }
+        .decoration-text-pink { color: #ec407a; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+        .decoration-text-pink::before, .decoration-text-pink::after { content: ''; display: inline-block; width: 30px; border-top: 2px dashed #f48fb1; transform: rotate(-15deg); }
+        .decoration-text-pink::after { transform: rotate(15deg); }
+        .decoration-text-orange { color: #E87A00; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+        .decoration-text-orange::before, .decoration-text-orange::after { content: ''; display: inline-block; width: 30px; border-top: 2px dashed #ffb74d; transform: rotate(-15deg); }
+        .decoration-text-orange::after { transform: rotate(15deg); }
+        .schedule-table-new { width: 100%; max-width: 400px; border-collapse: collapse; text-align: center; background-color: white; }
+        .schedule-table-new th, .schedule-table-new td { border: 1px solid #e0e0e0; padding: 0.5rem; }
+        .schedule-table-new th { background-color: #9e9e9e; color: white; font-weight: normal; font-size: 0.9rem; }
+        .schedule-table-new td { font-size: 0.9rem; color: #555; }
+        .star-mark { color: #9e9e9e; font-size: 1.2rem; }
+        .circle-mark { color: #9e9e9e; font-size: 0.8rem; }
+        .cross-mark { color: #9e9e9e; font-size: 1.2rem; }
+        .schedule-notes { text-align: center; font-size: 0.85rem; color: #333; line-height: 1.6; }
+        .copyright-area { text-align: center; padding: 1.5rem 0; font-size: 0.8rem; color: #333; background-color: var(--sub-bg-color); }
+        .full-map-area iframe { width: 100%; height: 400px; vertical-align: bottom; border: none; }
+
+        /* ==========================================
+           Animations
+           ========================================== */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ==========================================
+           Responsive Design
+           ========================================== */
+        @media (max-width: 1024px) {
+            .category-grid { display: flex; }
+            .treatment-list { grid-template-columns: repeat(3, 1fr); }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .quick-links-grid { grid-template-columns: repeat(3, 1fr); }
+            .sitemap-grid { grid-template-columns: repeat(3, 1fr); }
+            .info-staff-image { display: none; }
+            .info-right { width: 50%; }
+
+            /* Header Responsive: Hide Desktop Header, Show Mobile */
+            .header-top-link, .header-main-content, .header-nav-bar { display: none; }
+            .site-header { position: fixed; top: 0; left: 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .mobile-header-bar { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; height: 70px; }
+            .mobile-logo-wrap { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+            .mobile-logo-wrap img { width: 35px; }
+            .mobile-logo-text { font-size: 1.2rem; font-weight: bold; color: var(--text-main); font-family: var(--font-heading); }
+            .mobile-actions { display: flex; align-items: center; gap: 1rem; }
+            .mobile-reserve-btn { background-color: var(--primary-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold; text-decoration: none; }
+            .mobile-menu-toggle { background: none; border: none; font-size: 2rem; color: var(--accent-color); cursor: pointer; }
+            
+            .mobile-nav-menu.active { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--base-color); padding: 1rem 2rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); border-top: 1px solid var(--border-color); }
+            .mobile-nav-menu a { padding: 1rem 0; border-bottom: 1px solid #eee; color: var(--text-main); font-weight: bold; text-decoration: none; }
+            
+            .hero { margin-top: 70px; height: calc(100vh - 70px); }
+        }
+
+        @media (max-width: 768px) {
+            .treatment-list { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
+            .quick-links-grid { grid-template-columns: repeat(2, 1fr); }
+            .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-info-container { flex-direction: column; align-items: center; }
+            .info-left, .info-right { width: 100%; max-width: 500px; }
+            .info-left { margin-bottom: 2rem; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { border-left: none; border-top: 4px solid var(--primary-color); border-radius: 0 0 8px 8px; }
+            .header-center .schedule-table-new { width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .sitemap-grid { grid-template-columns: 1fr; }
+            .mobile-reserve-btn { display: none; } /* スペース確保のためスマホ最小幅では非表示 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ① 新しいヘッダー -->
+    <header class="site-header">
+        <div class="header-top-link">
+            <div class="container" style="text-align: left;">クリニック紹介 | 福山市 なかむら歯科クリニック</div>
+        </div>
+
+        <!-- PC用ヘッダーコンテンツ -->
+        <div class="header-main-content">
+            <!-- 左：ロゴ・医院名 -->
+            <div class="header-left">
+                <span class="happy-life">“HAPPY LIFE” のお手伝い</span>
+                <a href="#" class="header-logo-wrap">
+                    <img src="https://api.iconify.design/mdi:tooth-outline.svg?color=%23e87a00" alt="logo">
+                    <span class="header-logo-text">なかむら歯科クリニック</span>
+                </a>
+                <div class="header-cert">
+                    厚生労働省許認可施設<br>
+                    厚生労働省指定広島大学歯科医師臨床研修施設<br>
+                    厚生労働省指定徳島大学歯科医師臨床研修施設
+                </div>
+            </div>
+
+            <!-- 中央：診療時間表 -->
+            <div class="header-center">
+                <div class="decoration-text-pink" style="font-size:0.85rem;">保育士による託児サービス実施</div>
+                <table class="schedule-table-new">
+                    <thead>
+                        <tr>
+                            <th>診療時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:30〜17:30</td>
+                            <td class="star-mark">★</td><td class="star-mark">★</td><td class="star-mark">★</td><td class="star-mark">★</td><td class="star-mark">★</td><td class="circle-mark">●</td><td class="cross-mark">休</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="font-size:0.75rem; color:#333; margin-top:2px;">最終受付：17:00　★印=託児有（10時〜13時）</div>
+                <div class="decoration-text-orange" style="font-size:0.85rem; margin-top:4px;">お昼も休まず常時診療</div>
+            </div>
+
+            <!-- 右：予約・連絡先 -->
+            <div class="header-right">
+                <a href="https://dentnet-book.genesis-net.co.jp/nakamurashika/" target="_blank" class="header-reserve-btn">
+                    今すぐ初診ネット予約 <span class="material-symbols-rounded">touch_app</span>
+                </a>
+                <div class="header-contact-info">
+                    <p>診療のご予約・お問合せはお気軽に</p>
+                    <div class="header-tel-box">
+                        <div class="tel-main"><span class="material-symbols-rounded tel-icon">call</span> 084-982-9800</div>
+                        <div class="tel-free"><span class="material-symbols-rounded tel-icon">voicemail</span> 0120-084-982</div>
+                    </div>
+                    <!-- 右下のスタッフ画像 -->
+                    <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=150&h=150&q=80" alt="スタッフ" class="header-staff-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- PC用ナビゲーション -->
+        <nav class="header-nav-bar">
+            <ul class="header-nav-list">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#categories">診療内容</a></li>
+                <li><a href="#">院長・スタッフ紹介</a></li>
+                <li><a href="#">クリニック紹介</a></li>
+                <li><a href="#">初めてお越しの方へ</a></li>
+                <li><a href="#contact">地図・駐車場</a></li>
+                <li><a href="#">その他のサイト</a></li>
+            </ul>
+        </nav>
+
+        <!-- スマホ用ヘッダーバー（1024px以下で表示） -->
+        <div class="mobile-header-bar">
+            <a href="#" class="mobile-logo-wrap">
+                <img src="https://api.iconify.design/mdi:tooth-outline.svg?color=%23e87a00" alt="logo">
+                <span class="mobile-logo-text">なかむら歯科</span>
+            </a>
+            <div class="mobile-actions">
+                <a href="https://dentnet-book.genesis-net.co.jp/nakamurashika/" class="mobile-reserve-btn" target="_blank">ネット予約</a>
+                <button class="mobile-menu-toggle" id="mobileToggle">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- スマホ用ドロップダウンメニュー -->
+        <nav class="mobile-nav-menu" id="navMenuMobile">
+            <a href="#">HOME</a>
+            <a href="#categories">診療内容</a>
+            <a href="#">院長・スタッフ紹介</a>
+            <a href="#">クリニック紹介</a>
+            <a href="#">初めてお越しの方へ</a>
+            <a href="#contact">地図・駐車場</a>
+            <a href="#">その他のサイト</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1 class="hero-title">
+                        <span>「夢」と「ありがとう」を、</span>
+                        生涯のお口の健康から。
+                    </h1>
+                    <p class="hero-subtitle">
+                        広島県福山市。<br>
+                        妊娠中の方からご高齢の方まで、家族みんなが安心して通える「生涯のかかりつけ医」として、あなたの人生に寄り添います。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- クイックリンク(診療案内) -->
+        <section class="quick-links-section">
+            <div class="container fade-in">
+                <div class="quick-links-header">
+                    <h2>診療案内</h2>
+                    <span>Medical Information</span>
+                </div>
+                
+                <div class="quick-links-grid">
+                    <a href="https://www.nakamura-sika.net/dental/general.php" class="quick-link-item" target="_blank">
+                        <span>むし歯</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/preventive.php" class="quick-link-item" target="_blank">
+                        <span>予防歯科</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/kids.php" class="quick-link-item" target="_blank">
+                        <span>小児歯科</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/orthodontic.php" class="quick-link-item" target="_blank">
+                        <span>矯正治療</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/lp_invisalign/" class="quick-link-item" target="_blank">
+                        <span>インビザライン</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    
+                    <a href="https://www.nakamura-sika.net/dental/implant.php" class="quick-link-item" target="_blank">
+                        <span>インプラント</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/esthetic.php" class="quick-link-item" target="_blank">
+                        <span>審美歯科</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/whitening.php" class="quick-link-item" target="_blank">
+                        <span>ホワイトニング</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/maternity.php" class="quick-link-item" target="_blank">
+                        <span>マタニティ歯科</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/surgery.php" class="quick-link-item" target="_blank">
+                        <span>口腔外科</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    
+                    <a href="https://www.nakamura-sika.net/dental/bridge.php" class="quick-link-item" target="_blank">
+                        <span>ブリッジ治療</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/denture.php" class="quick-link-item" target="_blank">
+                        <span>入れ歯治療</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/lifetime/senior.php" class="quick-link-item" target="_blank">
+                        <span>シニア向け入れ歯</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/housecall.php" class="quick-link-item" target="_blank">
+                        <span>訪問歯科診療</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/lifetime/adult.php" class="quick-link-item" target="_blank">
+                        <span>セカンドオピニオン</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Introduction Section -->
+        <section class="intro" id="intro">
+            <div class="container fade-in">
+                <h2 class="section-title">なかむら歯科が大切にしている<br>「全人的医療」</h2>
+                <div class="intro-text">
+                    <p>
+                        私たちは、単に「痛いところを削って詰める」だけの治療は行いません。<br>
+                        お口の健康は、全身の健康、そして毎日の食事や会話という
+                        <!-- ③ 該当文字の色をオレンジに -->
+                        <strong style="color: var(--primary-color);">「人生の質（QOL）」</strong>に直結しています。
+                    </p>
+                    <p>
+                        だからこそ、対症療法ではなく原因を根本から見つめ直す
+                        <!-- ③ 該当文字の色をオレンジに -->
+                        <strong style="color: var(--primary-color);">予防歯科</strong>をベースに、<br>
+                        患者様一人ひとりとのコミュニケーションを最も大切にしています。
+                    </p>
+                    <p>
+                        不安な気持ちに寄り添い、生涯にわたってご自身の歯で笑顔あふれる毎日を過ごしていただけるよう、<br>
+                        スタッフ一丸となってサポートいたします。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Category Section -->
+        <section class="categories" id="categories">
+            <div class="container">
+                <!-- ④ タイトルを「診療案内」に変更 -->
+                <h2 class="section-title">診療案内</h2>
+                <div class="category-grid">
+                    
+                    <!-- Group A -->
+                    <div class="category-group fade-in">
+                        <div class="category-header">
+                            <!-- ⑤ タイトル文字色をオレンジに (CSSで一括指定済み) -->
+                            <h3><span class="material-symbols-rounded">health_and_safety</span> 一般歯科・家族の健康（守る）</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="treatment-list">
+                                <a href="https://www.nakamura-sika.net/dental/general.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=400&q=80" alt="むし歯治療" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>むし歯治療</h4>
+                                        <p>なるべく削らない・痛みを抑えた治療</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/preventive.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=400&q=80" alt="予防歯科" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>予防歯科</h4>
+                                        <p>痛くなる前に守るプロのケア</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/kids.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=400&q=80" alt="小児歯科" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>小児歯科</h4>
+                                        <p>歯医者さんを好きになってもらう工夫</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/maternity.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=400&q=80" alt="マタニティ歯科" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>マタニティ歯科</h4>
+                                        <p>妊婦さんと赤ちゃんの健康を守る</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group B -->
+                    <div class="category-group fade-in">
+                        <div class="category-header">
+                            <!-- ⑤ タイトル文字色をオレンジに (CSSで一括指定済み) -->
+                            <h3><span class="material-symbols-rounded">auto_awesome</span> 審美・矯正（美しく整える）</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="treatment-list">
+                                <a href="https://www.nakamura-sika.net/dental/esthetic.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1590664095641-7fa05f689813?auto=format&fit=crop&w=400&q=80" alt="審美歯科" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>審美歯科</h4>
+                                        <p>メタルフリーで自然な白さへ</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/whitening.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=400&q=80" alt="ホワイトニング" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>ホワイトニング</h4>
+                                        <p>明るく自信を持てる笑顔へ</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/orthodontic.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=400&q=80" alt="矯正治療" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>矯正治療</h4>
+                                        <p>美しい歯並びと健康な噛み合わせ</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/lp_invisalign/" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=400&q=80" alt="インビザライン" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>インビザライン</h4>
+                                        <p>目立ちにくいマウスピース矯正</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group C -->
+                    <div class="category-group fade-in">
+                        <div class="category-header">
+                            <!-- ⑤ タイトル文字色をオレンジに (CSSで一括指定済み) -->
+                            <h3><span class="material-symbols-rounded">build_circle</span> 歯を補う・噛み合わせ（機能を回復する）</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="treatment-list">
+                                <a href="https://www.nakamura-sika.net/dental/implant.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=400&q=80" alt="インプラント" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>インプラント</h4>
+                                        <p>ご自身の歯のようにしっかり噛める</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/bridge.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=400&q=80" alt="ブリッジ治療" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>ブリッジ治療</h4>
+                                        <p>失った歯を両隣の歯で支える治療</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/denture.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=400&q=80" alt="入れ歯治療" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>入れ歯治療</h4>
+                                        <p>お口にぴったり合う入れ歯の製作</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/lifetime/senior.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=400&q=80" alt="こだわりの入れ歯" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>こだわりの入れ歯</h4>
+                                        <p>シニア向けの精密で痛みの少ない義歯</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group D -->
+                    <div class="category-group fade-in">
+                        <div class="category-header">
+                            <!-- ⑤ タイトル文字色をオレンジに (CSSで一括指定済み) -->
+                            <h3><span class="material-symbols-rounded">support_agent</span> 専門ケア・地域医療（支える）</h3>
+                        </div>
+                        <div class="category-content">
+                            <div class="treatment-list">
+                                <a href="https://www.nakamura-sika.net/dental/surgery.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=400&q=80" alt="口腔外科" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>口腔外科</h4>
+                                        <p>親知らず抜歯など専門的外科処置</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/dental/housecall.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=400&q=80" alt="訪問歯科診療" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>訪問歯科診療</h4>
+                                        <p>通院困難な方のご自宅や施設へ</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.nakamura-sika.net/lifetime/adult.php" class="treatment-item" target="_blank">
+                                    <img src="https://images.unsplash.com/photo-1590664095641-7fa05f689813?auto=format&fit=crop&w=400&q=80" alt="セカンドオピニオン" class="treatment-image">
+                                    <div class="treatment-text-content">
+                                        <h4>セカンドオピニオン</h4>
+                                        <p>他院での治療に対する客観的意見</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">院内のこだわり <br><span style="font-size:1.2rem; color:var(--text-light); font-weight:normal;">- 信頼の証 -</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=600&q=80" alt="カウンセリングルーム">
+                        </div>
+                        <div class="feature-text-content">
+                            <h3>カウンセリングルーム完備</h3>
+                            <p>プライバシーに配慮した個室空間で、周囲を気にせずお悩みやご要望をじっくりお伺いします。</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="feature-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="徹底した滅菌体制">
+                        </div>
+                        <div class="feature-text-content">
+                            <h3>徹底した滅菌体制</h3>
+                            <p>世界基準（クラスB）の滅菌器を導入。使用する器具は患者様ごとに滅菌パックし院内感染を防ぎます。</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="feature-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80" alt="バリアフリー設計">
+                        </div>
+                        <div class="feature-text-content">
+                            <h3>バリアフリー設計</h3>
+                            <p>入口から診療室まで段差のない設計です。車椅子やベビーカーのままスムーズに診療台まで移動可能です。</p>
+                        </div>
+                    </div>
+                    <div class="feature-card fade-in" style="transition-delay: 0.3s;">
+                        <div class="feature-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1590664095641-7fa05f689813?auto=format&fit=crop&w=600&q=80" alt="託児サービス">
+                        </div>
+                        <div class="feature-text-content">
+                            <h3>託児サービス</h3>
+                            <p>保育士資格を持つスタッフが在籍。小さなお子様連れの方も安心して治療に専念していただけます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Sitemap & Contact Section (画像レイアウトを再現) -->
+        <section class="sitemap-section" id="contact">
+            <div class="container">
+                <div class="sitemap-header">コンテンツ</div>
+                <ul class="sitemap-grid">
+                    <li><a href="https://www.nakamura-sika.net/dental/general.php" target="_blank">むし歯</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/orthodontic.php" target="_blank">矯正治療</a></li>
+                    <li><a href="#" target="_blank">院長・スタッフ紹介</a></li>
+                    <li><a href="#" target="_blank">地図・駐車場</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/preventive.php" target="_blank">予防歯科</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/whitening.php" target="_blank">ホワイトニング</a></li>
+                    <li><a href="#" target="_blank">クリニック紹介</a></li>
+                    <li><a href="#" target="_blank">妊婦さん向けメッセージ</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/esthetic.php" target="_blank">審美歯科（メタルフリー）</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/kids.php" target="_blank">小児歯科</a></li>
+                    <li><a href="#" target="_blank">医療用CT</a></li>
+                    <li><a href="https://www.nakamura-sika.net/lifetime/adult.php" target="_blank">成人向け治療・セカンドオピニオン</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/implant.php" target="_blank">インプラント</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/maternity.php" target="_blank">マタニティ歯科</a></li>
+                    <li><a href="#" target="_blank">初めてお越しの方へ</a></li>
+                    <li><a href="#" target="_blank">キッズクラブ</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/denture.php" target="_blank">入れ歯治療</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/surgery.php" target="_blank">口腔外科</a></li>
+                    <li><a href="#" target="_blank">AIチャットご利用上の注意点</a></li>
+                    <li><a href="https://www.nakamura-sika.net/lifetime/senior.php" target="_blank">シニア向け・こだわりの入れ歯</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/bridge.php" target="_blank">ブリッジ治療</a></li>
+                    <li><a href="https://www.nakamura-sika.net/dental/housecall.php" target="_blank">訪問歯科診療</a></li>
+                    <li></li> <!-- 空のアイテムでレイアウト調整 -->
+                    <li></li>
+                    <li><a href="https://www.nakamura-sika.net/lp_invisalign/" target="_blank">インビザライン</a></li>
+                    <li><a href="#" target="_blank">LINEでインプラント相談</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 医院情報・予約エリア -->
+        <section class="footer-info-section">
+            <div class="container footer-info-container">
+                
+                <!-- 左側：医院情報 -->
+                <div class="info-left">
+                    <div class="info-left-top">
+                        <div class="info-tel-box">
+                            <p>診療のご予約・お問合せはお気軽に</p>
+                            <a href="tel:084-982-9800" style="text-decoration:none;">
+                                <div class="tel-main"><span class="material-symbols-rounded tel-icon">call</span> 084-982-9800</div>
+                            </a>
+                            <a href="tel:0120-084-982" style="text-decoration:none;">
+                                <div class="tel-free"><span class="material-symbols-rounded tel-icon" style="font-size:1.8rem;">voicemail</span> 0120-084-982</div>
+                            </a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1598256989800-fea5f61027f6?auto=format&fit=crop&w=100&h=100&q=80" alt="スタッフ" style="width: 80px; height: 80px; border-radius: 5px; object-fit: cover;">
+                    </div>
+
+                    <div class="clinic-identity">
+                        <p>“HAPPY LIFE” のお手伝い</p>
+                        <div class="clinic-logo-text">
+                            <img src="https://api.iconify.design/mdi:tooth-outline.svg?color=%23e87a00" alt="logo">
+                            なかむら歯科クリニック
+                        </div>
+                        <p style="text-align: right; padding-right: 15%; margin-top: 0;">院長・理事長　中村幸生</p>
+                    </div>
+
+                    <table class="access-table-info">
+                        <tr>
+                            <th>住所</th>
+                            <td>
+                                〒721-0942<br>
+                                広島県福山市引野町 3丁目 37-27<br>
+                                <span class="highlight-text">駐車場61台完備</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>交通</th>
+                            <td>
+                                電車⇒東福山駅南口から直進 つきあたり 800m<br>
+                                車⇒国道2号線東福山駅交差点を南に 500m
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- 右側：予約・診療時間 -->
+                <div class="info-right">
+                    <a href="#" class="banner-consult" style="text-decoration:none;">
+                        無料相談 &gt;&gt; <span class="material-symbols-rounded">mail</span>
+                    </a>
+                    
+                    <a href="https://dentnet-book.genesis-net.co.jp/nakamurashika/" target="_blank" class="banner-reserve" style="text-decoration:none;">
+                        <div class="reserve-circle">24</div>
+                        <div class="reserve-text-box">
+                            <span>ネットで簡単</span>
+                            <strong>オンライン初診予約 &gt;&gt;</strong>
+                        </div>
+                    </a>
+                    <p class="reserve-note">一度受診された方はお電話にてご予約ください。</p>
+
+                    <div class="decoration-wrap">
+                        <span class="decoration-text-pink">保育士による託児サービス実施</span>
+                    </div>
+
+                    <table class="schedule-table-new">
+                        <thead>
+                            <tr>
+                                <th>診療時間</th>
+                                <th>月</th>
+                                <th>火</th>
+                                <th>水</th>
+                                <th>木</th>
+                                <th>金</th>
+                                <th>土</th>
+                                <th>日祝</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:30〜17:30</td>
+                                <td class="star-mark">★</td>
+                                <td class="star-mark">★</td>
+                                <td class="star-mark">★</td>
+                                <td class="star-mark">★</td>
+                                <td class="star-mark">★</td>
+                                <td class="circle-mark">●</td>
+                                <td class="cross-mark">×</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="decoration-wrap">
+                        <span class="decoration-text-orange">お昼も休まず常時診療</span>
+                    </div>
+
+                    <div class="schedule-notes">
+                        <p>最終受付：17:00 休診日：日曜・祝日</p>
+                        <p>★印は託児サービス有（10時〜13時まで）</p>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1594824436998-d567119f97fc?auto=format&fit=crop&w=300&h=600&q=80" alt="スタッフ" class="info-staff-image">
+            </div>
+        </section>
+
+        <!-- コピーライト -->
+        <div class="copyright-area">
+            Copyright&copy; なかむら歯科クリニック All Rights Reserved.
+        </div>
+
+        <!-- Google Map -->
+        <div class="full-map-area">
+            <iframe src="https://maps.google.co.jp/maps?q=広島県福山市引野町3丁目37-27&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenuMobile = document.getElementById('navMenuMobile');
+
+            if (mobileToggle && navMenuMobile) {
+                mobileToggle.addEventListener('click', () => {
+                    navMenuMobile.classList.toggle('active');
+                    const icon = mobileToggle.querySelector('.material-symbols-rounded');
+                    if(navMenuMobile.classList.contains('active')) {
+                        icon.textContent = 'close';
+                    } else {
+                        icon.textContent = 'menu';
+                    }
+                });
+
+                navMenuMobile.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenuMobile.classList.remove('active');
+                        mobileToggle.querySelector('.material-symbols-rounded').textContent = 'menu';
+                    });
+                });
+            }
+
+            // Scroll Animation (Fade-in)
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
