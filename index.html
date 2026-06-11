@@ -322,6 +322,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            /* 画像のパスを images/ に変更しました */
             background-image: url('./images/1.JPG');
             background-size: cover;
             background-position: center 20%;
@@ -367,9 +368,10 @@
         }
 
         /* ==========================================
-           Quick Links Section (診療案内)
+           Quick Links Section (ヒーロー直下)
            ========================================== */
         .quick-links-section {
+            /* 画像のパスを images/ に変更しました */
             background-image: url('./images/2.jpg');
             background-size: cover;
             background-position: center;
@@ -413,16 +415,15 @@
         }
 
         .quick-links-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.2rem;
         }
 
         .quick-link-item {
             background-color: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
-            padding: 1rem 0.5rem;
+            padding: 1.5rem 0.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -430,13 +431,7 @@
             justify-content: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            height: 90px;
-            width: calc((100% - 1.2rem * 3) / 4); /* 小アイテムは4列 */
-        }
-
-        .quick-link-item.large {
-            width: calc((100% - 1.2rem * 2) / 3); /* 大アイテムは3列 */
-            height: 130px;
+            height: 120px;
         }
 
         .quick-link-item:hover {
@@ -445,30 +440,17 @@
         }
 
         .quick-link-item span {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            color: var(--text-main);
-            margin-bottom: 0.8rem;
-        }
-        
-        .quick-link-item.large span {
-            font-size: 1.2rem;
-            font-weight: 700;
             color: var(--text-main);
             margin-bottom: 1.2rem;
         }
 
         .link-decoration {
-            width: 30px;
+            width: 40px;
             height: 1px;
             background-color: #d2c5a9;
             position: relative;
-        }
-        
-        .quick-link-item.large .link-decoration {
-            width: 50px;
-            height: 2px;
-            background-color: #d2c5a9;
         }
 
         /* ==========================================
@@ -493,6 +475,7 @@
         }
 
         .intro-text strong {
+            /* 個別の色はインラインスタイルで対応するため、ここはデフォルトの強調 */
             font-size: 1.2rem;
             font-weight: 700;
         }
@@ -717,12 +700,8 @@
             .category-grid { display: flex; }
             .treatment-list { grid-template-columns: repeat(3, 1fr); }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .quick-links-grid { grid-template-columns: repeat(3, 1fr); }
             .sitemap-grid { grid-template-columns: repeat(3, 1fr); }
-            
-            /* クイックリンクのレスポンシブ (タブレット) */
-            .quick-link-item { width: calc((100% - 1.2rem * 2) / 3); } /* 3列 */
-            .quick-link-item.large { width: calc((100% - 1.2rem) / 2); } /* 2列 */
-
             .info-staff-image { display: none; }
             .info-right { width: 50%; }
 
@@ -746,12 +725,8 @@
         @media (max-width: 768px) {
             .treatment-list { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr; }
+            .quick-links-grid { grid-template-columns: repeat(2, 1fr); }
             .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
-            
-            /* クイックリンクのレスポンシブ (スマホ) */
-            .quick-link-item { width: calc((100% - 1.2rem) / 2); } /* 2列 */
-            .quick-link-item.large { width: 100%; height: 110px; } /* 1列 */
-
             .footer-info-container { flex-direction: column; align-items: center; }
             .info-left, .info-right { width: 100%; max-width: 500px; }
             .info-left { margin-bottom: 2rem; }
@@ -762,9 +737,6 @@
         @media (max-width: 480px) {
             .sitemap-grid { grid-template-columns: 1fr; }
             .mobile-reserve-btn { display: none; } /* スペース確保のためスマホ最小幅では非表示 */
-            
-            /* クイックリンクのレスポンシブ (小型スマホ) */
-            .quick-link-item { width: 100%; }
         }
     </style>
 </head>
@@ -896,31 +868,12 @@
                 </div>
                 
                 <div class="quick-links-grid">
-                    <!-- 特に力を入れているメニュー（大きく表示） -->
-                    <a href="https://www.nakamura-sika.net/dental/implant.php" class="quick-link-item large" target="_blank">
-                        <span>インプラント</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="https://www.nakamura-sika.net/lp_invisalign/" class="quick-link-item large" target="_blank">
-                        <span>インビザライン</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="https://www.nakamura-sika.net/dental/preventive.php" class="quick-link-item large" target="_blank">
-                        <span>予防歯科</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="#" class="quick-link-item large" target="_blank">
-                        <span>歯周病治療</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="#" class="quick-link-item large" target="_blank">
-                        <span>プレオルソ</span>
-                        <div class="link-decoration"></div>
-                    </a>
-
-                    <!-- その他のメニュー（小さく表示） -->
                     <a href="https://www.nakamura-sika.net/dental/general.php" class="quick-link-item" target="_blank">
                         <span>むし歯</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/dental/preventive.php" class="quick-link-item" target="_blank">
+                        <span>予防歯科</span>
                         <div class="link-decoration"></div>
                     </a>
                     <a href="https://www.nakamura-sika.net/dental/kids.php" class="quick-link-item" target="_blank">
@@ -929,6 +882,15 @@
                     </a>
                     <a href="https://www.nakamura-sika.net/dental/orthodontic.php" class="quick-link-item" target="_blank">
                         <span>矯正治療</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    <a href="https://www.nakamura-sika.net/lp_invisalign/" class="quick-link-item" target="_blank">
+                        <span>インビザライン</span>
+                        <div class="link-decoration"></div>
+                    </a>
+                    
+                    <a href="https://www.nakamura-sika.net/dental/implant.php" class="quick-link-item" target="_blank">
+                        <span>インプラント</span>
                         <div class="link-decoration"></div>
                     </a>
                     <a href="https://www.nakamura-sika.net/dental/esthetic.php" class="quick-link-item" target="_blank">
@@ -947,6 +909,7 @@
                         <span>口腔外科</span>
                         <div class="link-decoration"></div>
                     </a>
+                    
                     <a href="https://www.nakamura-sika.net/dental/bridge.php" class="quick-link-item" target="_blank">
                         <span>ブリッジ治療</span>
                         <div class="link-decoration"></div>
