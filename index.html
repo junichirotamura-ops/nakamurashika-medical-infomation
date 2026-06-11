@@ -413,9 +413,8 @@
         }
 
         .quick-links-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr); /* 12カラムベースで柔軟に配置 */
             gap: 1.2rem;
         }
 
@@ -431,11 +430,11 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
             height: 90px;
-            width: calc((100% - 1.2rem * 3) / 4); /* 小アイテムは4列 */
+            grid-column: span 3; /* 小アイテムは4列 (12/3=4) */
         }
 
         .quick-link-item.large {
-            width: calc((100% - 1.2rem * 2) / 3); /* 大アイテムは3列 */
+            grid-column: span 4; /* 大アイテムは3列 (12/4=3) */
             height: 130px;
         }
 
@@ -720,8 +719,8 @@
             .sitemap-grid { grid-template-columns: repeat(3, 1fr); }
             
             /* クイックリンクのレスポンシブ (タブレット) */
-            .quick-link-item { width: calc((100% - 1.2rem * 2) / 3); } /* 3列 */
-            .quick-link-item.large { width: calc((100% - 1.2rem) / 2); } /* 2列 */
+            .quick-link-item { grid-column: span 4; }
+            .quick-link-item.large { grid-column: span 6; }
 
             .info-staff-image { display: none; }
             .info-right { width: 50%; }
@@ -749,8 +748,8 @@
             .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
             
             /* クイックリンクのレスポンシブ (スマホ) */
-            .quick-link-item { width: calc((100% - 1.2rem) / 2); } /* 2列 */
-            .quick-link-item.large { width: 100%; height: 110px; } /* 1列 */
+            .quick-link-item { grid-column: span 6; }
+            .quick-link-item.large { grid-column: span 12; height: 110px; }
 
             .footer-info-container { flex-direction: column; align-items: center; }
             .info-left, .info-right { width: 100%; max-width: 500px; }
@@ -764,7 +763,7 @@
             .mobile-reserve-btn { display: none; } /* スペース確保のためスマホ最小幅では非表示 */
             
             /* クイックリンクのレスポンシブ (小型スマホ) */
-            .quick-link-item { width: 100%; }
+            .quick-link-item { grid-column: span 12; }
         }
     </style>
 </head>
@@ -907,14 +906,6 @@
                     </a>
                     <a href="https://www.nakamura-sika.net/dental/preventive.php" class="quick-link-item large" target="_blank">
                         <span>予防歯科</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="#" class="quick-link-item large" target="_blank">
-                        <span>歯周病治療</span>
-                        <div class="link-decoration"></div>
-                    </a>
-                    <a href="#" class="quick-link-item large" target="_blank">
-                        <span>プレオルソ</span>
                         <div class="link-decoration"></div>
                     </a>
 
